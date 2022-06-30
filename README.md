@@ -141,7 +141,7 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 <table>
 <tbody>
 	<tr>
-		<td>Project Discussions</td>
+		<td>Discussions</td>
 		<td><a href="https://github.com/tinyBigGAMES/Topaz/discussions">https://github.com/tinyBigGAMES/Topaz/discussions</a></td>
 	</tr>
 	<tr>
@@ -149,12 +149,20 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 		<td><a href="https://topazgamelibrary.com">https://topazgamelibrary.com</a></td>
 	</tr>
 	<tr>
-		<td>Discord</td>
-		<td><a href="https://discord.gg/tPWjMwK">https://discord.gg/tPWjMwK</a></td>
+		<td>Facebook Page</td>
+		<td><a href="https://facebook.com/topazgamelib">https://facebook.com/topazgamelib</a></td>
 	</tr>
+	<tr>
+		<td>Facebook Group</td>
+		<td><a href="https://facebook.com/groups/topazgamelib">https://facebook.com/groups/topazgamelib</a></td>
+	</tr>	
 	<tr>
 		<td>Twitter</td>
 		<td><a href="https://twitter.com/topazgamelib">https://twitter.com/topazgamelib</a></td>
+	</tr>
+	<tr>
+		<td>Discord</td>
+		<td><a href="https://discord.gg/tPWjMwK">https://discord.gg/tPWjMwK</a></td>
 	</tr>
 	<tr>
 		<td>YouTube</td>
