@@ -14,7 +14,7 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 <a href="https://github.com/tinyBigGAMES/Topaz/releases" target="_blank">**Releases**</a> - These are the official release versions and deemed to be the most stable.
 
 ## Features
-- **Free** for commercial use. See <a href="https://github.com/tinyBigGAMES/GameVision/blob/main/LICENSE" target="_blank">License agreement</a>.
+- **Free** for non-commercial use. See <a href="https://github.com/tinyBigGAMES/GameVision/blob/main/LICENSE" target="_blank">License agreement</a>.
 - Written in **Object Pascal**
 - Support Windows 64 bit platform
 - Hardware accelerated with **OpenGL**
