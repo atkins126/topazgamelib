@@ -141,13 +141,17 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 <table>
 <tbody>
 	<tr>
+		<td>Website</td>
+		<td><a href="https://topazgamelibrary.com">https://topazgamelibrary.com</a></td>
+	</tr>
+	<tr>
 		<td>Discussions</td>
 		<td><a href="https://github.com/tinyBigGAMES/Topaz/discussions">https://github.com/tinyBigGAMES/Topaz/discussions</a></td>
 	</tr>
 	<tr>
-		<td>Website</td>
-		<td><a href="https://topazgamelibrary.com">https://topazgamelibrary.com</a></td>
-	</tr>
+		<td>Issue Tracking</td>
+		<td><a href="https://github.com/orgs/tinyBigGAMES/projects/3">https://github.com/orgs/tinyBigGAMES/projects/3</a></td>
+	</tr>	
 	<tr>
 		<td>Facebook Page</td>
 		<td><a href="https://facebook.com/topazgamelib">https://facebook.com/topazgamelib</a></td>
