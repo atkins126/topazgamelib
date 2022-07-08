@@ -151,7 +151,15 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 	<tr>
 		<td>Issue Tracking</td>
 		<td><a href="https://github.com/orgs/tinyBigGAMES/projects/4">https://github.com/orgs/tinyBigGAMES/projects/4</a></td>
-	</tr>	
+	</tr>
+	<tr>
+		<td>Facebook Page</td>
+		<td><a href="https://facebook.com/topazgamelib">https://facebook.com/topazgamelib</a></td>
+	</tr>
+		<tr>
+		<td>Facebook Group</td>
+		<td><a href="https://facebook.com/groups/topazgamelib">https://facebook.com/groups/topazgamelib</a></td>
+	</tr>
 	<tr>
 		<td>Twitter</td>
 		<td><a href="https://twitter.com/topazgamelib">https://twitter.com/topazgamelib</a></td>
