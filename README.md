@@ -33,7 +33,7 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 - **Misc** (collision, easing, screen shake, screenshot, starfield, colors, INI based config files, startup dialog, treeview menu)
 
 ## Minimum System Requirements
-- Delphi 11.x
+- Delphi Community Edition
 - Microsoft Windows 10, 64 bits
 - OpenGL 3
 
