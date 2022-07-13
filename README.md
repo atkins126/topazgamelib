@@ -50,14 +50,13 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 - This project is in active development so changes will be frequent 
 - Documentation is WIP. They will continue to evolve
 - More examples will continually be added over time
-- When you run the font example it will seem like it is hung, give it a moment and it will startup. The mono.ttf used in the example has a very large number of glyphs which we use for testing unicode support. We will continue to investigate this.
 
 ## A Tour of Topaz Game Library
 ### Game Object
-You just have to derive a new class from the `TGame` base class and override a few callback methods. You access the toolkit functionality from the `TopazGameLibrary` unit.
+You just have to derive a new class from the `TGame` base class and override a few callback methods. You access the toolkit functionality from the `TopazGameLib` unit.
 ```pascal
 uses
-  TopazGameLibrary;
+  TopazGameLib;
 
 type
   { TMyGame }
