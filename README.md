@@ -141,7 +141,7 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 <tbody>
 	<tr>
 		<td>Website</td>
-		<td><a href="https://topazgamelibrary.com">https://topazgamelibrary.com</a></td>
+		<td><a href="https://topazgamelib.com">https://topazgamelibrary.com</a></td>
 	</tr>
 	<tr>
 		<td>Discussions</td>
