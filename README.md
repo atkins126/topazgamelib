@@ -30,7 +30,10 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 - **Font** (true type, scale, rotate)
 - **Timing** (time-based, frame elapsed, frame speed)
 - **Shaders** (vertex, fragment, GLSL)
+- **In App Purchase** (powered by <a href="https://stripe.com" target="_blank">Stripe.com</a>)
+- **Social** (post to all your social accounts, text and media, powered by <a href="https://dlvrit.com/" target="_blank">dlvrit.com</a>)
 - **Misc** (collision, easing, screen shake, screenshot, starfield, colors, INI based config files, startup dialog, treeview menu)
+- And more. See `TopazGameLib.pas` in `installdir\sources` and the docs in `installdir\docs` for more information about features.
 
 ## Minimum System Requirements
 - Delphi Community Edition
@@ -39,10 +42,9 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 
 ## How to use in Delphi
 - Unzip the archive to a desired location.
-- Add `installdir\sources`, folder to Delphi's library path so the toolkit source files can be found for any project or for a specific project add to its search path.
-- In Delphi, load `Topaz Game Library.groupproj` to load and compile the project files.
-- Compile and use `ZipArc` utility for making archive files (standard password protected zip format). Running the `makearc.bat` in `installdir\bin` will build `Data.arc` that is used by the examples.
-- Compile and run the various examples which will showcase the toolkit features and how to use them.
+- Add `installdir\sources`, folder to Delphi's library path so the library source files can be found for any project or for a specific project add to its search path.
+- Use `TopazArc` utility for making archive files (compressed, encrypted custom format). Running the `makearc.bat` in `installdir\bin` will build `Data.arc` that is used by the examples.
+- In Delphi, load `Topaz Game Library.groupproj` to load and compile `TopazExamples`, which will showcase the library features and how to use them.
 - See examples in the `installdir\examples` for more information about usage.
 - You must include `TGL.dll` in your project distribution.
 
@@ -62,7 +64,7 @@ type
   { TMyGame }
   TMyGame = class(TGame)
   public
-    procedure OnSetSettings(var aSettings: TGVSettings); override;
+    procedure OnGetSettings(var aSettings: TGameSettings); override;
     procedure OnStartup; override;
     procedure OnShutdown; override;
     procedure OnUpdate(aDeltaTime: Double); override;
@@ -75,7 +77,7 @@ A minimal implementation example:
 ```pascal
 
 { TMyGame }
-procedure TMyGame.OnSetSettings(var aSettings: TGVSettings);
+procedure TMyGame.OnGetSettings(var aSettings: TGameSettings);
 begin
   inherited;
   
@@ -125,7 +127,7 @@ To run your game, call
 ```pascal
 Topaz.RunGame(TMyGame);
 ```
-**NOTE:** For a Topaz game to work properly, execution MUST start with `Topaz.RunGame(...)`.
+**NOTE:** For a Topaz game to work properly, execution MUST start with `Topaz.RunGame(...)`. Only a single instance will be allowed to run, all other instances will quietly terminate.
 
 See the examples for more information on usage.
 
