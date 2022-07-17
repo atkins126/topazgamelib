@@ -14,7 +14,7 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 <a href="https://github.com/tinyBigGAMES/Topaz/releases" target="_blank">**Releases**</a> - These are the official release versions and deemed to be the most stable.
 
 ## Features
-- **Free** for non-commercial use. See <a href="https://github.com/tinyBigGAMES/Topaz/blob/main/LICENSE" target="_blank">License agreement</a>.
+- **Free** for non-commercial use. See <a href="https://github.com/tinyBigGAMES/topazgamelib/blob/main/LICENSE" target="_blank">License agreement</a>.
 - Written in **Object Pascal**
 - Support Windows 64 bit platform
 - Hardware accelerated with **OpenGL**
@@ -36,7 +36,7 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 - And more. See `TopazGameLib.pas` in `installdir\sources` and the docs in `installdir\docs` for more information about features.
 
 ## Minimum System Requirements
-- Delphi Community Edition
+- <a href="https://www.embarcadero.com/products/delphi/starter" target="_blank">Delphi Community Edition</a>, win64 platform
 - Microsoft Windows 10, 64 bits
 - OpenGL 3
 
@@ -47,6 +47,8 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 - In Delphi, load `Topaz Game Library.groupproj` to load and compile `TopazExamples`, which will showcase the library features and how to use them.
 - See examples in the `installdir\examples` for more information about usage.
 - You must include `TGL.dll` in your project distribution.
+
+***NOTE: All executables in this repo that are created by us will be digitally signed as tinyBigGAMES LLC, for your protection and peace of mind.***
 
 ## Known Issues
 - This project is in active development so changes will be frequent 
@@ -146,6 +148,10 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 		<td><a href="https://topazgamelib.com">https://topazgamelib.com</a></td>
 	</tr>
 	<tr>
+		<td>Email</td>
+		<td><a href="mailto:support@topazgamelib.com">mailto:support@topazgamelib.com</a></td>
+	</tr>	
+	<tr>
 		<td>Discussions</td>
 		<td><a href="https://github.com/tinyBigGAMES/Topaz/discussions">https://github.com/tinyBigGAMES/Topaz/discussions</a></td>
 	</tr>
@@ -167,7 +173,7 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 	</tr>
 	<tr>
 		<td>Discord</td>
-		<td><a href="https://discord.gg/tPWjMwK">https://discord.gg/tPWjMwK</a></td>
+		<td><a href="https://discord.gg/tPWjMwK">https://discord.gg/tPWjMwK</a> (#topaz-game-library channel)</td>
 	</tr>
 	<tr>
 		<td>YouTube</td>

@@ -77,3 +77,6 @@ bin/Screenshots
 bin/*.txt
 bin/*.ini
 !bin/TGL.dll
+!bin/TopazArc.exe
+!bin/TopazExamples.exe
+!bin/Data.arc
