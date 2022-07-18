@@ -40,6 +40,13 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 - Microsoft Windows 10, 64 bits
 - OpenGL 3
 
+## Purchase Benefits 
+- The Software may be used by an unlimited number of developers to develop an unlimited number of commercial Products, which may be distributed to an unlimited number of clients, with no distribution or usage restrictions. 
+- You will have priority support with access to our private Topaz development forum and discord channel.
+- You will have access to private betas, documents, etc. and be able to help shape the direction of the product.
+- You will be helping us continue developing this product, thank you in advance.
+- <a href="https://tinybiggames.com/subscriptions/" target="_blank">BUY</a>
+
 ## How to use in Delphi
 - Unzip the archive to a desired location.
 - Add `installdir\sources`, folder to Delphi's library path so the library source files can be found for any project or for a specific project add to its search path.
