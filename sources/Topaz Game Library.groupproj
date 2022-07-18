@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6888A0E7-3A1E-479D-9A54-A35FC2257CBC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\examples\TopazExamples.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TopazExamples">
+        <MSBuild Projects="..\examples\TopazExamples.dproj"/>
+    </Target>
+    <Target Name="TopazExamples:Clean">
+        <MSBuild Projects="..\examples\TopazExamples.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TopazExamples:Make">
+        <MSBuild Projects="..\examples\TopazExamples.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TopazExamples"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TopazExamples:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TopazExamples:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

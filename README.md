@@ -14,7 +14,7 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 <a href="https://github.com/tinyBigGAMES/Topaz/releases" target="_blank">**Releases**</a> - These are the official release versions and deemed to be the most stable.
 
 ## Features
-- **Free** for non-commercial use. See <a href="https://github.com/tinyBigGAMES/Topaz/blob/main/LICENSE" target="_blank">License agreement</a>.
+- **Free** for non-commercial use. See <a href="https://github.com/tinyBigGAMES/topazgamelib/blob/main/LICENSE" target="_blank">License agreement</a>.
 - Written in **Object Pascal**
 - Support Windows 64 bit platform
 - Hardware accelerated with **OpenGL**
@@ -30,40 +30,43 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 - **Font** (true type, scale, rotate)
 - **Timing** (time-based, frame elapsed, frame speed)
 - **Shaders** (vertex, fragment, GLSL)
+- **In App Purchase** (powered by <a href="https://stripe.com" target="_blank">Stripe.com</a>)
+- **Social** (post to all your social accounts, text and media, powered by <a href="https://dlvrit.com/" target="_blank">dlvrit.com</a>)
 - **Misc** (collision, easing, screen shake, screenshot, starfield, colors, INI based config files, startup dialog, treeview menu)
+- And more. See `TopazGameLib.pas` in `installdir\sources` and the docs in `installdir\docs` for more information about features.
 
 ## Minimum System Requirements
-- Delphi 11.x
+- <a href="https://www.embarcadero.com/products/delphi/starter" target="_blank">Delphi Community Edition</a>, win64 platform
 - Microsoft Windows 10, 64 bits
 - OpenGL 3
 
 ## How to use in Delphi
 - Unzip the archive to a desired location.
-- Add `installdir\sources`, folder to Delphi's library path so the toolkit source files can be found for any project or for a specific project add to its search path.
-- In Delphi, load `Topaz Game Library.groupproj` to load and compile the project files.
-- Compile and use `ZipArc` utility for making archive files (standard password protected zip format). Running the `makearc.bat` in `installdir\bin` will build `Data.arc` that is used by the examples.
-- Compile and run the various examples which will showcase the toolkit features and how to use them.
+- Add `installdir\sources`, folder to Delphi's library path so the library source files can be found for any project or for a specific project add to its search path.
+- Use `TopazArc` utility for making archive files (compressed, encrypted custom format). Running the `makearc.bat` in `installdir\bin` will build `Data.arc` that is used by the examples.
+- In Delphi, load `Topaz Game Library.groupproj` to load and compile `TopazExamples`, which will showcase the library features and how to use them.
 - See examples in the `installdir\examples` for more information about usage.
 - You must include `TGL.dll` in your project distribution.
+
+***NOTE: All executables in this repo that are created by us will be digitally signed as tinyBigGAMES LLC, for your protection and peace of mind.***
 
 ## Known Issues
 - This project is in active development so changes will be frequent 
 - Documentation is WIP. They will continue to evolve
 - More examples will continually be added over time
-- When you run the font example it will seem like it is hung, give it a moment and it will startup. The mono.ttf used in the example has a very large number of glyphs which we use for testing unicode support. We will continue to investigate this.
 
 ## A Tour of Topaz Game Library
 ### Game Object
-You just have to derive a new class from the `TGame` base class and override a few callback methods. You access the toolkit functionality from the `TopazGameLibrary` unit.
+You just have to derive a new class from the `TGame` base class and override a few callback methods. You access the toolkit functionality from the `TopazGameLib` unit.
 ```pascal
 uses
-  TopazGameLibrary;
+  TopazGameLib;
 
 type
   { TMyGame }
   TMyGame = class(TGame)
   public
-    procedure OnSetSettings(var aSettings: TGVSettings); override;
+    procedure OnGetSettings(var aSettings: TGameSettings); override;
     procedure OnStartup; override;
     procedure OnShutdown; override;
     procedure OnUpdate(aDeltaTime: Double); override;
@@ -76,7 +79,7 @@ A minimal implementation example:
 ```pascal
 
 { TMyGame }
-procedure TMyGame.OnSetSettings(var aSettings: TGVSettings);
+procedure TMyGame.OnGetSettings(var aSettings: TGameSettings);
 begin
   inherited;
   
@@ -126,7 +129,7 @@ To run your game, call
 ```pascal
 Topaz.RunGame(TMyGame);
 ```
-**NOTE:** For a Topaz game to work properly, execution MUST start with `Topaz.RunGame(...)`.
+**NOTE:** For a Topaz game to work properly, execution MUST start with `Topaz.RunGame(...)`. Only a single instance will be allowed to run, all other instances will quietly terminate.
 
 See the examples for more information on usage.
 
@@ -142,8 +145,12 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 <tbody>
 	<tr>
 		<td>Website</td>
-		<td><a href="https://topazgamelibrary.com">https://topazgamelibrary.com</a></td>
+		<td><a href="https://topazgamelib.com">https://topazgamelib.com</a></td>
 	</tr>
+	<tr>
+		<td>Email</td>
+		<td><a href="mailto:support@topazgamelib.com">mailto:support@topazgamelib.com</a></td>
+	</tr>	
 	<tr>
 		<td>Discussions</td>
 		<td><a href="https://github.com/tinyBigGAMES/Topaz/discussions">https://github.com/tinyBigGAMES/Topaz/discussions</a></td>
@@ -166,7 +173,7 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 	</tr>
 	<tr>
 		<td>Discord</td>
-		<td><a href="https://discord.gg/tPWjMwK">https://discord.gg/tPWjMwK</a></td>
+		<td><a href="https://discord.gg/tPWjMwK">https://discord.gg/tPWjMwK</a> (#topaz-game-library channel)</td>
 	</tr>
 	<tr>
 		<td>YouTube</td>
