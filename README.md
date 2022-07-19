@@ -4,9 +4,13 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/topazgamelib?style=social)](https://twitter.com/topazgamelib)
 
 ## Overview
-Topaz Game Library&trade; is a 2D professional indie game library that allows you to do game development in <a href="https://www.embarcadero.com/products/delphi" target="_blank">Delphi</a> for desktop PC's running Microsoft Windows® and uses OpenGL® for hardware accelerated rendering.
+Topaz Game Library&trade; is a 2D professional indie game library that allows you to do game development in <a href="https://www.embarcadero.com/products/delphi" target="_blank"> Embarcadero Delphi</a> for desktop PC's running Microsoft Windows® and uses OpenGL® for hardware accelerated rendering.
 
 It's robust, designed for easy use and suitable for making all types of 2D games and other graphic simulations, You access the features from a simple and intuitive API, to allow you to rapidly and efficiently develop your projects. There is support for bitmaps, audio samples, streaming music, video playback, loading resources directly from a compressed and encrypted archive, a thin object oriented actor/scene system, entity state machine, sprite management, collision detection and much more. Topaz Game Library, easy, fast & fun!
+
+Please star this repo by clicking the Star box in the top right corner if you find it useful!
+
+if you wish to learn more about the Delphi language visit <a href="https://learndelphi.org/" target="_blank">learndelphi.org</a>.
 
 ## Downloads
 <a href="https://github.com/tinyBigGAMES/Topaz/archive/refs/heads/main.zip" target="_blank">**Development**</a> - This build represents the most recent development state an as such may or may not be as stable as the official release versions. If you like living on the bleeding edge, it's updated frequently (often daily) and will contain bug fixes and new features.
@@ -39,6 +43,13 @@ It's robust, designed for easy use and suitable for making all types of 2D games
 - <a href="https://www.embarcadero.com/products/delphi/starter" target="_blank">Delphi Community Edition</a>, win64 platform
 - Microsoft Windows 10, 64 bits
 - OpenGL 3
+
+## Purchase Benefits 
+- The Software may be used by an unlimited number of developers to develop an unlimited number of commercial Products, which may be distributed to an unlimited number of clients, with no distribution or usage restrictions. 
+- You will have priority support with access to our private Topaz development forum and discord channel.
+- You will have access to private betas, documents, etc. and be able to help shape the direction of the product.
+- You will be helping us continue developing this product, thank you in advance.
+- <a href="https://tinybiggames.com/subscriptions/" target="_blank">BUY</a>
 
 ## How to use in Delphi
 - Unzip the archive to a desired location.
