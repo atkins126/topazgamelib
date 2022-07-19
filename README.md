@@ -152,6 +152,13 @@ https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-
 
 
 ## Support
+Our development motto: 
+- We will not release products that are buggy, incomplete, adding new features over not fixing underlying issues.
+- We will strive to fix issues found with our products in a timely manner.
+- We will maintain an attitude of quality over quantity for our products.
+- We will establish a great rapport with users/customers, with communication, transparency and respect, always encouragingng feedback to help shape the direction of our products.
+- We will be decent, fair, remain humble and committed to the craft.
+
 <table>
 <tbody>
 	<tr>
