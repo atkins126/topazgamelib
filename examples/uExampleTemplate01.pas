@@ -43,6 +43,10 @@ type
     procedure OnLuaState(aState: TLuaState); override;
     procedure OnBeforeRenderScene(aSceneNum: Integer); override;
     procedure OnAfterRenderScene(aSceneNum: Integer); override;
+    procedure OnPhysicsDrawBodyShapes(aBody: TPhysicsBody); override;
+    procedure OnPhysicsUpdateBody(aBody: TPhysicsBody); override;
+    procedure OnPathEditorAction(aAction: TPathEditorAction); override;
+    procedure OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer; aSpeed: Single; aWindowPos: TPointi; aWindowSize: TPointi); override;
   end;
 
 implementation
@@ -214,6 +218,26 @@ begin
 end;
 
 procedure TExampleTemplate.OnAfterRenderScene(aSceneNum: Integer);
+begin
+  inherited;
+end;
+
+procedure TExampleTemplate.OnPhysicsDrawBodyShapes(aBody: TPhysicsBody);
+begin
+  inherited;
+end;
+
+procedure TExampleTemplate.OnPhysicsUpdateBody(aBody: TPhysicsBody);
+begin
+  inherited;
+end;
+
+procedure TExampleTemplate.OnPathEditorAction(aAction: TPathEditorAction);
+begin
+  inherited;
+end;
+
+procedure TExampleTemplate.OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer; aSpeed: Single; aWindowPos: TPointi; aWindowSize: TPointi);
 begin
   inherited;
 end;

@@ -162,11 +162,13 @@ uses
   uHighscores,
   uMisc,
   uTextures,
+  uPathEditors,
   uAstroBlasterDemo,
   uScrollDemo,
   uElasticDemo,
   uRenderTargetsDemo,
-  uChainActionDemo;
+  uChainActionDemo,
+  uPhysicsDemo;
 
 procedure TExamples.OnGetSettings(var aSettings: TGameSettings);
 begin
@@ -249,12 +251,16 @@ type
     miStarfieldEx,
     miSpeechEx,
 
+    // path editors
+    miPathEditorEx,
+
     // demos
     miAstroBlaster,
     miRenderTargetsDemo,
     miChainActionDemo,
-    miElastic,
-    miScroll
+    miElasticDemo,
+    miScrollDemo,
+    miPhysicsDemo
   );
 var
   LMenu: ITreeMenu;
@@ -274,6 +280,7 @@ var
   LRenderTargetMenu: Pointer;
   LHighscoresMenu: Pointer;
   LMiscMenu: Pointer;
+  LPathEditorMenu: Pointer;
 begin
 
   Topaz.Get(ITreeMenu, LMenu);
@@ -354,6 +361,12 @@ begin
         LMenu.AddItem(LHighscoresMenu, 'Highscore', Ord(miHighscoresEx), True);
       LMenu.Sort(LHighscoresMenu);
 
+      // path editors
+      LPathEditorMenu := LMenu.AddItem(LExamplesMenu, 'Path Editors', TREEMENU_NONE, True);
+        LMenu.AddItem(LPathEditorMenu, 'Path Editor', Ord(miPathEditorEx), True);
+      LMenu.Sort(LPathEditorMenu);
+
+
       // misc
       LMiscMenu := LMenu.AddItem(LExamplesMenu, 'Misc', TREEMENU_NONE, True);
         LMenu.AddItem(LMiscMenu, 'Screenshot', Ord(miScreenshotEx), True);
@@ -369,8 +382,9 @@ begin
     LMenu.AddItem(LDemosMenu, 'AstroBlaster', Ord(miAstroBlaster), True);
     LMenu.AddItem(LDemosMenu, 'Render Targets', Ord(miRenderTargetsDemo), True);
     LMenu.AddItem(LDemosMenu, 'ChainAction', Ord(miChainActionDemo), True);
-    LMenu.AddItem(LDemosMenu, 'Elastic', Ord(miElastic), True);
-    LMenu.AddItem(LDemosMenu, 'Scroll', Ord(miScroll), True);
+    LMenu.AddItem(LDemosMenu, 'Elastic', Ord(miElasticDemo), True);
+    LMenu.AddItem(LDemosMenu, 'Scroll', Ord(miScrollDemo), True);
+    LMenu.AddItem(LDemosMenu, 'Physics', Ord(miPhysicsDemo), True);
     LMenu.Sort(LDemosMenu);
 
     LId := ConfigFile.GetValue('TreeMenu', 'Id', -1);
@@ -430,12 +444,16 @@ begin
         miTiledTextureEx: Topaz.RunGame(TTiledTextureEx);
         miTransparentTextureEx: Topaz.RunGame(TTransparentTextureEx);
 
+        // path editors
+        miPathEditorEx: Topaz.RunGame(TPathEditorEx);
+
         // demos
         miAstroBlaster: Topaz.RunGame(TAstroBlasterDemo);
-        miScroll: Topaz.RunGame(TScrollDemo);
-        miElastic: Topaz.RunGame(TElasticDemo);
+        miScrollDemo: Topaz.RunGame(TScrollDemo);
+        miElasticDemo: Topaz.RunGame(TElasticDemo);
         miRenderTargetsDemo: Topaz.RunGame(TRenderTargetsDemo);
         miChainActionDemo: Topaz.RunGame(TChainActionDemo);
+        miPhysicsDemo: Topaz.RunGame(TPhysicsDemo);
       end;
     until LId = TREEMENU_QUIT;
     ConfigFile.SetValue('TreeMenu', 'Id', LMenu.GetLastSelectedId);
