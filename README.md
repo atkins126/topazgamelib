@@ -175,7 +175,7 @@ Our development motto:
 	</tr>
 	<tr>
 		<td>Issue Tracking</td>
-		<td><a href="https://github.com/orgs/tinyBigGAMES/projects/4">https://github.com/orgs/tinyBigGAMES/projects/4</a></td>
+		<td><a href="https://github.com/tinyBigGAMES/topazgamelib/issues">https://github.com/tinyBigGAMES/topazgamelib/issues</a></td>
 	</tr>
 	<tr>
 		<td>Facebook Page</td>
