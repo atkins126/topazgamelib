@@ -159,46 +159,16 @@ Our development motto:
 - We will establish a great rapport with users/customers, with communication, transparency and respect, always encouragingng feedback to help shape the direction of our products.
 - We will be decent, fair, remain humble and committed to the craft.
 
-<table>
-<tbody>
-	<tr>
-		<td>Website</td>
-		<td><a href="https://topazgamelib.com">https://topazgamelib.com</a></td>
-	</tr>
-	<tr>
-		<td>Email</td>
-		<td><a href="mailto:support@topazgamelib.com">mailto:support@topazgamelib.com</a></td>
-	</tr>	
-	<tr>
-		<td>Discussions</td>
-		<td><a href="https://github.com/tinyBigGAMES/Topaz/discussions">https://github.com/tinyBigGAMES/Topaz/discussions</a></td>
-	</tr>
-	<tr>
-		<td>Issue Tracking</td>
-		<td><a href="https://github.com/tinyBigGAMES/topazgamelib/issues">https://github.com/tinyBigGAMES/topazgamelib/issues</a></td>
-	</tr>
-	<tr>
-		<td>Facebook Page</td>
-		<td><a href="https://facebook.com/topazgamelib">https://facebook.com/topazgamelib</a></td>
-	</tr>
-		<tr>
-		<td>Facebook Group</td>
-		<td><a href="https://facebook.com/groups/topazgamelib">https://facebook.com/groups/topazgamelib</a></td>
-	</tr>
-	<tr>
-		<td>Twitter</td>
-		<td><a href="https://twitter.com/topazgamelib">https://twitter.com/topazgamelib</a></td>
-	</tr>
-	<tr>
-		<td>Discord</td>
-		<td><a href="https://discord.gg/tPWjMwK">https://discord.gg/tPWjMwK</a> (#topaz-game-library channel)</td>
-	</tr>
-	<tr>
-		<td>YouTube</td>
-		<td><a href="https://vimeo.com/tinyBigGAMES">https://youtube.com/tinyBigGAMES</a></td>
-	</tr>
-</tbody>
-</table>
+### Links:
+- <a href="https://topazgamelib.com" target="_blank">Website</a>
+- <a href="mailto:support@topazgamelib.com" target="_blank">Email</a>
+- <a href="https://github.com/tinyBigGAMES/topazgamelib/discussions" target="_blank">Discussions</a>
+- <a href="https://github.com/tinyBigGAMES/topazgamelib/issues" target="_blank">Issue Tracking</a>
+- <a href="https://facebook.com/topazgamelib" target="_blank">Facebook Page</a>
+- <a href="https://facebook.com/groups/topazgamelib" target="_blank">Facebook Group</a>
+- <a href="https://twitter.com/topazgamelib" target="_blank">Twitter</a>
+- <a href="https://discord.gg/tPWjMwK" target="_blank">Discord</a> (#topazgamelib)
+- <a href="https://youtube.com/tinyBigGAMES" target="_blank">YouTube</a>
 
 <p align="center">
  <a href="https://www.embarcadero.com/products/delphi" target="_blank"><img src="media/delphi.png"></a><br/>
