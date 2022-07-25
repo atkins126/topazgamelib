@@ -146,10 +146,13 @@ See the examples for more information on usage.
 
 ## Media
 
+Topaz Game Library Intro
 
 https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-910c-47b9f6063903.mp4
 
+FreeStrike Prototype (currently in develoment, using TopazGameLib)
 
+https://user-images.githubusercontent.com/69952438/180831551-fa7dbed8-6c3c-49a7-99df-d650856efb3f.mp4
 
 ## Support
 Our development motto: 
