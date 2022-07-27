@@ -402,6 +402,12 @@ const
   NAN      =  0.0 / 0.0;
 
 type
+  { TPointi }
+  PPointi = ^TPointi;
+  TPointi = record
+    X,Y: Integer;
+  end;
+
   { TVector }
   PVector = ^TVector;
   TVector = record
@@ -430,6 +436,7 @@ type
     procedure DivideBy(aValue: Single);
     function  Project(aVector: TVector): TVector;
     procedure Negate;
+    class function Vec2(aX, aY: Single): TVector; static;
   end;
 
   { TRectangle }
@@ -595,6 +602,9 @@ type
     function  MessageBox(const aTitle, aHeading, aText: WideString; aType: TMessageBox): TMessageBoxResult;
     procedure Feedback(const aServer, aUsername, aPassword, aEmail, aSubject: WideString; aPort: Integer=MAIL_PORT_SMTPS);
     procedure ContactUs(const aTitle, aServer, aUsername, aPassword, aEmail: WideString; aPort: Integer=MAIL_PORT_SMTPS);
+    function  DirOpen(const aTitle, aInitialDir: WideString; var aDirName: WideString): Boolean;
+    function  FileOpen(const aTitle, aFilter: WideString; aFilterIndex: Integer; aDefaultExt: WideString; aInitialDir: WideString; var aFilename: WideString): Boolean;
+    function  FileSave(const aTitle, aFilter: WideString; aFilterIndex: Integer; aDefaultExt: WideString; var aFilename: WideString): Boolean;
   end;
 
 // === BUFFER ===============================================================
@@ -831,6 +841,7 @@ type
     procedure GetViewportSize(var aSize: TRectangle);
     procedure SetRenderTarget(aRenderTarget: IRenderTarget);
     procedure SetTransformPos(aX: Single; aY: Single);
+    procedure SetPos(aX: Integer; aY: Integer);
 
     // --- Blending ---------------------------------------------------------
     procedure SetBlender(aOperation: Integer; aSource: Integer; aDestination: Integer);
@@ -1620,6 +1631,57 @@ type
     function GetCurrency: WideString;
   end;
 
+// === PHYSICS ==============================================================
+type
+  { TPhysicsShapeType }
+  TPhysicsShapeType = (psCircle, psPolygon, psInvalid);
+
+  { TPhysicsBodyType }
+  TPhysicsBodyType = (pbStatic, pbKinematic, pbDynamic, pbInvalid);
+
+  { TPhysicsBody }
+  TPhysicsBody = type Pointer;
+
+  { TPhysicsBodyShape }
+  TPhysicsBodyShape = (bsCircle, bsRectangle);
+
+  { TPhysicsBodyData }
+  PPhysicsBodyData = ^TPhysicsBodyData;
+  TPhysicsBodyData = record
+    Shape: TPhysicsBodyShape;
+    CircleRadius: Single;
+    RectangleSize: TVector;
+  end;
+
+  { IPhysics }
+  IPhysics = interface(IBaseInterface)
+    ['{4BBCC645-34A6-4680-8E0E-705B25152F6D}']
+    procedure Update;
+    procedure Open;
+    procedure Close;
+    procedure Reset;
+    procedure Clear;
+    function  GetEnabled: Boolean;
+    procedure SetGravity(aX, aY: Double);
+    function  CreateCircleBody(aType: TPhysicsBodyType; aX, aY: Double; aRadius: Double; aDensity: Double = 1.0; aFriction: Double = 0.3): TPhysicsBody;
+    function  CreateRectangleBody(aType: TPhysicsBodyType; aX, aY: Double; aWidth: Double; aHeight: Double; aDensity: Double = 1.0; aFriction: Double = 0.3): TPhysicsBody;
+    procedure DestroyBody(aBody: TPhysicsBody);
+    procedure AddForce(aBody: TPhysicsBody; aX, aY: Double);
+    procedure AddTorque(aBody: TPhysicsBody; aAmount: Double);
+    function  GetBodyCount: Integer;
+    function  GetFirstBody: TPhysicsBody;
+    function  GetNextBody(aBody: TPhysicsBody): TPhysicsBody;
+    procedure SetBodyRotation(aBody: TPhysicsBody; aAngle: Double);
+    function  GetBodyRotation(aBody: TPhysicsBody): Double;
+    procedure GetBodyPosition(aBody: TPhysicsBody; var aX, aY: Double);
+    procedure DrawBodyShapes(aDrawDebug: Boolean);
+    procedure UpdateBodies;
+    procedure SetUserData(aBody: TPhysicsBody; aData: Pointer);
+    function  GetUserData(aBody: TPhysicsBody): Pointer;
+    function  GetBodyType(aBody: TPhysicsBody): TPhysicsBodyType;
+    function  GetBodyData(aBody: TPhysicsBody): TPhysicsBodyData;
+  end;
+
 // === SPLASHSCREEN =========================================================
 type
 
@@ -1641,6 +1703,44 @@ type
     procedure DrawTexture(aX, aY, aScale, aAngle: Single; aColor: TColor; aHAligh: THAlign; aVAligh: TVAlign);
     procedure DrawText(aX, aY: Single; aColor: TColor; aAlign: THAlign; const aMsg: WideString; const aArgs: array of const);
     procedure Show;
+  end;
+
+// === PATHEDITOR ===========================================================
+type
+  { TPathEditorAction }
+  TPathEditorAction = (paLoad, paSave);
+
+  { IPathEditor }
+  IPathEditor = interface(IBaseInterface)
+    ['{FDE25E23-CE9D-404A-8DD4-ED57D6133B95}']
+    procedure SetInfo(aWidth: Integer; aHeight: Integer; aMargin: Integer);
+    procedure GetInfo(aWidth: PInteger; aHeight: PInteger; aMargin: PInteger);
+    function  GetPathCount: Integer;
+    function  GetPointCount(aPathIndex: Integer): Integer;
+    procedure Clear;
+    procedure Reset;
+    function  AddPath: Integer;
+    function  RemovePath(aPathIndex: Integer): Integer;
+    procedure ClearPath(aPathIndex: Integer);
+    function  AddPoint(aPathIndex: Integer; aPoint: TPointi): Integer;
+    function  GetPoint(aPathIndex: Integer; aPointIndex: Integer): TPointi;
+    procedure Save(aFilename: WideString);
+    function  Load(aArchive: IArchive; aFilename: WideString): Boolean;
+    procedure Show;
+    procedure SetIcon(aArchive: IArchive; aFilename: WideString);
+  end;
+
+// === PATHEDITORPATH =======================================================
+type
+  { IPathEditorPath }
+  IPathEditorPath = interface(IBaseInterface)
+    ['{7570593E-A2B7-4A5F-9E4A-5973BD6D7104}']
+    procedure Init(aPathIndex: Integer; aLoopNum: Integer);
+    function  Update(aLookAhead: Integer; aSpeed: Single; var aX: Single; var aY: Single; var aAngle: Single): Boolean;
+    procedure GetPos(aIndex: Integer; var aX: Single; var aY: Single); overload;
+    procedure GetPos(aIndex: Integer; var aPos: TVector); overload;
+    procedure Reset;
+    procedure GetLookAheadPos(aLookAhead: Integer; var aX: Single; var aY: Single);
   end;
 
 // === LUA ==================================================================
@@ -1932,6 +2032,10 @@ type
     procedure OnLuaState(aState: TLuaState); virtual;
     procedure OnBeforeRenderScene(aSceneNum: Integer); virtual;
     procedure OnAfterRenderScene(aSceneNum: Integer); virtual;
+    procedure OnPhysicsDrawBodyShapes(aBody: TPhysicsBody); virtual;
+    procedure OnPhysicsUpdateBody(aBody: TPhysicsBody); virtual;
+    procedure OnPathEditorAction(aAction: TPathEditorAction); virtual;
+    procedure OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer; aSpeed: Single; aWindowPos: TPointi; aWindowSize: TPointi); virtual;
     function  GetGameClass: TGameClass; virtual;
     function  GetSettings: PGameSettings; virtual;
     procedure SetTerminated(aTerminate: Boolean); virtual;
@@ -1999,6 +2103,10 @@ type
     procedure OnLuaState(aState: TLuaState); override;
     procedure OnBeforeRenderScene(aSceneNum: Integer); override;
     procedure OnAfterRenderScene(aSceneNum: Integer); override;
+    procedure OnPhysicsDrawBodyShapes(aBody: TPhysicsBody); override;
+    procedure OnPhysicsUpdateBody(aBody: TPhysicsBody); override;
+    procedure OnPathEditorAction(aAction: TPathEditorAction); override;
+    procedure OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer; aSpeed: Single; aWindowPos: TPointi; aWindowSize: TPointi); override;
     function  GetGameClass: TGameClass; override;
     function  GetSettings: PGameSettings; override;
     procedure SetTerminated(aTerminate: Boolean); override;
@@ -2052,6 +2160,8 @@ type
     function  Dialogs: IDialogs;
     function  Speech: ISpeech;
     function  Splashscreen: ISplashscreen;
+    function  Physics: IPhysics;
+    function  PathEditor: IPathEditor;
     function  Lua: ILua;
   end;
 
@@ -2283,6 +2393,12 @@ procedure TVector.Negate;
 begin
   X := -X;
   Y := -Y;
+end;
+
+class function TVector.Vec2(aX, aY: Single): TVector;
+begin
+  Result.X := aX;
+  Result.Y := aY;
 end;
 
 { TRectangle }
@@ -2713,6 +2829,22 @@ procedure TCustomGame.OnAfterRenderScene(aSceneNum: Integer);
 begin
 end;
 
+procedure TCustomGame.OnPhysicsDrawBodyShapes(aBody: TPhysicsBody);
+begin
+end;
+
+procedure TCustomGame.OnPhysicsUpdateBody(aBody: TPhysicsBody);
+begin
+end;
+
+procedure TCustomGame.OnPathEditorAction(aAction: TPathEditorAction);
+begin
+end;
+
+procedure TCustomGame.OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer; aSpeed: Single; aWindowPos: TPointi; aWindowSize: TPointi);
+begin
+end;
+
 function  TCustomGame.GetGameClass: TGameClass;
 begin
   Result := gcCustom;
@@ -2760,6 +2892,9 @@ begin
   // StartupDialog
   Topaz.Get(IStartupDialog, FStartupDialog);
 
+  // Physics
+  Topaz.Physics.Open;
+
   // Audio
   Topaz.Audio.Open;
 end;
@@ -2768,6 +2903,9 @@ procedure TGame.OnDone;
 begin
   // Audio
   Topaz.Audio.Close;
+
+  // Physics
+  Topaz.Physics.Close;
 
   // StartupDialog
   Topaz.Release(FStartupDialog);
@@ -3040,6 +3178,26 @@ begin
 end;
 
 procedure TGame.OnAfterRenderScene(aSceneNum: Integer);
+begin
+  inherited;
+end;
+
+procedure TGame.OnPhysicsDrawBodyShapes(aBody: TPhysicsBody);
+begin
+  inherited;
+end;
+
+procedure TGame.OnPhysicsUpdateBody(aBody: TPhysicsBody);
+begin
+  inherited;
+end;
+
+procedure TGame.OnPathEditorAction(aAction: TPathEditorAction);
+begin
+  inherited;
+end;
+
+procedure TGame.OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer; aSpeed: Single; aWindowPos: TPointi; aWindowSize: TPointi);
 begin
   inherited;
 end;

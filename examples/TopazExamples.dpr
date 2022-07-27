@@ -154,7 +154,9 @@ uses
   uRenderTargets in 'uRenderTargets.pas',
   uHighscores in 'uHighscores.pas',
   uMisc in 'uMisc.pas',
-  uTextures in 'uTextures.pas';
+  uTextures in 'uTextures.pas',
+  uPhysicsDemo in 'uPhysicsDemo.pas',
+  uPathEditors in 'uPathEditors.pas';
 
 begin
   Topaz.RunGame(TExamples);

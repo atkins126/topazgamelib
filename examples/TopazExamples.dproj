@@ -4,7 +4,7 @@
         <ProjectVersion>19.5</ProjectVersion>
         <FrameworkType>None</FrameworkType>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Distro</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>2</TargetedPlatforms>
         <AppType>Console</AppType>
@@ -154,6 +154,8 @@ $(PostBuildEvent)]]></PostBuildEvent>
         <DCCReference Include="uHighscores.pas"/>
         <DCCReference Include="uMisc.pas"/>
         <DCCReference Include="uTextures.pas"/>
+        <DCCReference Include="uPhysicsDemo.pas"/>
+        <DCCReference Include="uPathEditors.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -49,6 +49,7 @@ if you wish to learn more about the Delphi language visit <a href="https://learn
 - You will have priority support with access to our private Topaz development forum and discord channel.
 - You will have access to private betas, documents, etc. and be able to help shape the direction of the product.
 - You will be helping us continue developing this product, thank you in advance.
+- Payment methods: **Credit Card (via Stripe.com)** | **PayPal**
 - <a href="https://tinybiggames.com/subscriptions/" target="_blank">BUY</a>
 
 ## How to use in Delphi
@@ -146,10 +147,13 @@ See the examples for more information on usage.
 
 ## Media
 
+Topaz Game Library Intro
 
 https://user-images.githubusercontent.com/69952438/175956603-33c2e4bd-bb6b-4424-910c-47b9f6063903.mp4
 
+FreeStrike Prototype (currently in development, using TopazGameLib)
 
+https://user-images.githubusercontent.com/69952438/180831551-fa7dbed8-6c3c-49a7-99df-d650856efb3f.mp4
 
 ## Support
 Our development motto: 
@@ -159,46 +163,16 @@ Our development motto:
 - We will establish a great rapport with users/customers, with communication, transparency and respect, always encouragingng feedback to help shape the direction of our products.
 - We will be decent, fair, remain humble and committed to the craft.
 
-<table>
-<tbody>
-	<tr>
-		<td>Website</td>
-		<td><a href="https://topazgamelib.com">https://topazgamelib.com</a></td>
-	</tr>
-	<tr>
-		<td>Email</td>
-		<td><a href="mailto:support@topazgamelib.com">mailto:support@topazgamelib.com</a></td>
-	</tr>	
-	<tr>
-		<td>Discussions</td>
-		<td><a href="https://github.com/tinyBigGAMES/Topaz/discussions">https://github.com/tinyBigGAMES/Topaz/discussions</a></td>
-	</tr>
-	<tr>
-		<td>Issue Tracking</td>
-		<td><a href="https://github.com/orgs/tinyBigGAMES/projects/4">https://github.com/orgs/tinyBigGAMES/projects/4</a></td>
-	</tr>
-	<tr>
-		<td>Facebook Page</td>
-		<td><a href="https://facebook.com/topazgamelib">https://facebook.com/topazgamelib</a></td>
-	</tr>
-		<tr>
-		<td>Facebook Group</td>
-		<td><a href="https://facebook.com/groups/topazgamelib">https://facebook.com/groups/topazgamelib</a></td>
-	</tr>
-	<tr>
-		<td>Twitter</td>
-		<td><a href="https://twitter.com/topazgamelib">https://twitter.com/topazgamelib</a></td>
-	</tr>
-	<tr>
-		<td>Discord</td>
-		<td><a href="https://discord.gg/tPWjMwK">https://discord.gg/tPWjMwK</a> (#topaz-game-library channel)</td>
-	</tr>
-	<tr>
-		<td>YouTube</td>
-		<td><a href="https://vimeo.com/tinyBigGAMES">https://youtube.com/tinyBigGAMES</a></td>
-	</tr>
-</tbody>
-</table>
+### Links:
+- <a href="https://topazgamelib.com" target="_blank">Website</a>
+- <a href="mailto:support@topazgamelib.com" target="_blank">Email</a>
+- <a href="https://github.com/tinyBigGAMES/topazgamelib/discussions" target="_blank">Discussions</a>
+- <a href="https://github.com/tinyBigGAMES/topazgamelib/issues" target="_blank">Issue Tracking</a>
+- <a href="https://facebook.com/topazgamelib" target="_blank">Facebook Page</a>
+- <a href="https://facebook.com/groups/topazgamelib" target="_blank">Facebook Group</a>
+- <a href="https://twitter.com/topazgamelib" target="_blank">Twitter</a>
+- <a href="https://discord.gg/tPWjMwK" target="_blank">Discord</a> (#topazgamelib)
+- <a href="https://youtube.com/tinyBigGAMES" target="_blank">YouTube</a>
 
 <p align="center">
  <a href="https://www.embarcadero.com/products/delphi" target="_blank"><img src="media/delphi.png"></a><br/>
