@@ -49,6 +49,7 @@ if you wish to learn more about the Delphi language visit <a href="https://learn
 - You will have priority support with access to our private Topaz development forum and discord channel.
 - You will have access to private betas, documents, etc. and be able to help shape the direction of the product.
 - You will be helping us continue developing this product, thank you in advance.
+- Payment methods: **Credit Card (via Stripe.com)** | **PayPal**
 - <a href="https://tinybiggames.com/subscriptions/" target="_blank">BUY</a>
 
 ## How to use in Delphi
