@@ -44,13 +44,21 @@ if you wish to learn more about the Delphi language visit <a href="https://learn
 - Microsoft Windows 10, 64 bits
 - OpenGL 3
 
-## Purchase Benefits 
+## Sponsor Benefits 
 - The Software may be used by an unlimited number of developers to develop an unlimited number of commercial Products, which may be distributed to an unlimited number of clients, with no distribution or usage restrictions. 
 - You will have priority support with access to our private Topaz development forum and discord channel.
 - You will have access to private betas, documents, etc. and be able to help shape the direction of the product.
 - You will be helping us continue developing this product, thank you in advance.
 - Payment methods: **Credit Card (via Stripe.com)** | **PayPal**
-- <a href="https://tinybiggames.com/subscriptions/" target="_blank">BUY</a>
+- I want to <a href="https://tinybiggames.com/subscriptions/" target="_blank">sponsor</a> this project.
+
+## Other ways to help
+- I want to <a href="https://tinybiggames.com/clients/donations/" target="_blank">donate</a> to this project.
+- I will make some examples and demos using this project.
+- I will spread the word about this project.
+- I wish to do X for this project.
+
+Thank you very much for any support you can provide, I will be most grateful. :clap: 
 
 ## How to use in Delphi
 - Unzip the archive to a desired location.
