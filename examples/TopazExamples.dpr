@@ -156,7 +156,8 @@ uses
   uMisc in 'uMisc.pas',
   uTextures in 'uTextures.pas',
   uPhysicsDemo in 'uPhysicsDemo.pas',
-  uPathEditors in 'uPathEditors.pas';
+  uPathEditors in 'uPathEditors.pas',
+  TopazGameLib.AI in '..\sources\TopazGameLib.AI.pas';
 
 begin
   Topaz.RunGame(TExamples);

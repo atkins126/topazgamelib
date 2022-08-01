@@ -184,13 +184,13 @@ uses
   System.SysUtils;
 
 const
-
-  // remotemysql.com
-  cDbServer   = 'remotemysql.com';
+  // freesqldatabase.com
+  cDbServer   = 'sql5.freesqldatabase.com';
   cDbPort     = DATABASE_DEFAULT_MYSQL_PORT;
-  cDbName     = 'DMDScOu0Zq';
-  cDbUser     = 'DMDScOu0Zq';
-  cDbPassword = 'rt2W4Ts5XC';
+  cDbName     = 'sql5510036';
+  cDbUser     = 'sql5510036';
+  cDbPassword = 'C6qbtkWf1b';
+
 
 
 { THighscoreTest }
