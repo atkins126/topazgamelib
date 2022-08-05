@@ -170,7 +170,7 @@ begin
   Topaz.Splashscreen.Show;
 
   Topaz.Get(IFont, FUnicodeFont);
-  FUnicodeFont.Load(Archive, 16, 'arc/fonts/mono.ttf');
+  FUnicodeFont.Load(Archive, 16, 'arc/fonts/unicode.ttf');
 end;
 
 procedure TUnicodeFontEx.OnShutdown;

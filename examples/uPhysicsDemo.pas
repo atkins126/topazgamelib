@@ -246,6 +246,7 @@ begin
     LScale := LData.CircleRadius;
     LScale := LScale * 0.016;
     FBall.Draw(LX, LY, LScale, LAngle, WHITE, haCenter, vaCenter);
+    //Font.PrintText(LX, LY, WHITE, haCenter, '%3.2f', [LAngle]);
   end;
 end;
 

@@ -273,13 +273,11 @@ const
   DARKSEAGREEN        : TColor = (Red:$8F/$FF; Green:$BC/$FF; Blue:$8F/$FF; Alpha:$FF/$FF);
   DARKSLATEBLUE       : TColor = (Red:$48/$FF; Green:$3D/$FF; Blue:$8B/$FF; Alpha:$FF/$FF);
   DARKSLATEGRAY       : TColor = (Red:$2F/$FF; Green:$4F/$FF; Blue:$4F/$FF; Alpha:$FF/$FF);
-  DARKSLATEGREY       : TColor = (Red:$2F/$FF; Green:$4F/$FF; Blue:$4F/$FF; Alpha:$FF/$FF);
   DARKTURQUOISE       : TColor = (Red:$00/$FF; Green:$CE/$FF; Blue:$D1/$FF; Alpha:$FF/$FF);
   DARKVIOLET          : TColor = (Red:$94/$FF; Green:$00/$FF; Blue:$D3/$FF; Alpha:$FF/$FF);
   DEEPPINK            : TColor = (Red:$FF/$FF; Green:$14/$FF; Blue:$93/$FF; Alpha:$FF/$FF);
   DEEPSKYBLUE         : TColor = (Red:$00/$FF; Green:$BF/$FF; Blue:$FF/$FF; Alpha:$FF/$FF);
   DIMGRAY             : TColor = (Red:$69/$FF; Green:$69/$FF; Blue:$69/$FF; Alpha:$FF/$FF);
-  DIMGREY             : TColor = (Red:$69/$FF; Green:$69/$FF; Blue:$69/$FF; Alpha:$FF/$FF);
   DODGERBLUE          : TColor = (Red:$1E/$FF; Green:$90/$FF; Blue:$FF/$FF; Alpha:$FF/$FF);
   FIREBRICK           : TColor = (Red:$B2/$FF; Green:$22/$FF; Blue:$22/$FF; Alpha:$FF/$FF);
   FLORALWHITE         : TColor = (Red:$FF/$FF; Green:$FA/$FF; Blue:$F0/$FF; Alpha:$FF/$FF);
@@ -478,6 +476,7 @@ type
     function  AngleDifference(aSrcAngle: Single; aDestAngle: Single): Single;
     procedure AngleRotatePos(aAngle: Single; var aX: Single; var aY: Single);
     function  ClipValueFloat(var aValue: Single; aMin: Single; aMax: Single; aWrap: Boolean): Single;
+    function  ClipValueDouble(var aValue: Double; aMin: Double; aMax: Double; aWrap: Boolean): Single;
     function  ClipValueInt(var aValue: Integer; aMin: Integer; aMax: Integer; aWrap: Boolean): Integer;
     function  SameSignInt(aValue1: Integer; aValue2: Integer): Boolean;
     function  SameSignFloat(aValue1: Single; aValue2: Single): Boolean;
@@ -580,6 +579,7 @@ type
     function  GetAppName: WideString;
     function  GetAppPath: WideString;
     function  GetAppBasedPath(const aFilename: WideString): WideString;
+    function  GetAppVersion: WideString;
     function  GetCPUCount: Integer;
     procedure GetDiskFreeSpace(const aPath: WideString; var aFreeSpace: Int64; var aTotalSpace: Int64);
     function  GetOSVersion: WideString;
@@ -1125,6 +1125,7 @@ type
     procedure UnloadAllMusic;
     procedure PlayMusic(aMusic: Integer; aVolume: Single; aLoop: Boolean); overload;
     procedure PlayMusic(aArchive: IArchive; const aFilename: WideString; aVolume: Single; aLoop: Boolean; var aMusic: Integer); overload;
+    procedure PlayMusicAsync(aArchive: IArchive; const aFilename: WideString; aVolume: Single; aLoop: Boolean; aMusic: Integer); overload;
     procedure StopMusic(aMusic: Integer);
     procedure PauseMusic(aMusic: Integer);
     procedure PauseAllMusic(aPause: Boolean);
@@ -1439,11 +1440,42 @@ type
 
 // === GUI ==================================================================
 const
+  GUI_COLOR_TEXT = 0;
+  GUI_COLOR_WINDOW = 1;
+  GUI_COLOR_HEADER = 2;
+  GUI_COLOR_BORDER = 3;
+  GUI_COLOR_BUTTON = 4;
+  GUI_COLOR_BUTTON_HOVER = 5;
+  GUI_COLOR_BUTTON_ACTIVE = 6;
+  GUI_COLOR_TOGGLE = 7;
+  GUI_COLOR_TOGGLE_HOVER = 8;
+  GUI_COLOR_TOGGLE_CURSOR = 9;
+  GUI_COLOR_SELECT = 10;
+  GUI_COLOR_SELECT_ACTIVE = 11;
+  GUI_COLOR_SLIDER = 12;
+  GUI_COLOR_SLIDER_CURSOR = 13;
+  GUI_COLOR_SLIDER_CURSOR_HOVER = 14;
+  GUI_COLOR_SLIDER_CURSOR_ACTIVE = 15;
+  GUI_COLOR_PROPERTY = 16;
+  GUI_COLOR_EDIT = 17;
+  GUI_COLOR_EDIT_CURSOR = 18;
+  GUI_COLOR_COMBO = 19;
+  GUI_COLOR_CHART = 20;
+  GUI_COLOR_CHART_COLOR = 21;
+  GUI_COLOR_CHART_COLOR_HIGHLIGHT = 22;
+  GUI_COLOR_SCROLLBAR = 23;
+  GUI_COLOR_SCROLLBAR_CURSOR = 24;
+  GUI_COLOR_SCROLLBAR_CURSOR_HOVER = 25;
+  GUI_COLOR_SCROLLBAR_CURSOR_ACTIVE = 26;
+  GUI_COLOR_TAB_HEADER = 27;
+  GUI_COLOR_COUNT = 28;
+
   GUI_THEME_DEFAULT = 0;
   GUI_THEME_WHITE   = 1;
   GUI_THEME_RED     = 2;
   GUI_THEME_BLUE    = 3;
   GUI_THEME_DARK    = 4;
+  GUI_THEME_CUSTOM  = 5;
 
   GUI_WINDOW_BORDER = 1;
   GUI_WINDOW_MOVABLE = 2;
@@ -1495,6 +1527,7 @@ type
     procedure Button(const aTitle: WideString);
     function  Option(const aTitle: WideString; aActive: Boolean): Boolean;
     procedure &Label(const aTitle: WideString; aAlign: Integer);
+    function  SelectableLabel(const aTitle: WideString; aAlign: Integer; var aValue: Boolean): Boolean;
     function  Slider(aMin: Single; aMax: Single; aStep: Single; var aValue: Single): Boolean;
     function  Checkbox(const aLabel: WideString; var aActive: Boolean): Boolean;
     function  Combobox(const aItems: array of WideString; aSelected: Integer; aItemHeight: Integer; aWidth: Single; aHeight: Single; var aChanged: Boolean): Integer;
@@ -1502,7 +1535,11 @@ type
     function  Value(const aName: WideString; aValue: Integer; aMin: Integer; aMax: Integer; aStep: Integer; aIncPerPixel: Single): Integer; overload;
     function  Value(const aName: WideString; aValue: Double; aMin: Double; aMax: Double; aStep: Double; aIncPerPixel: Single): Double; overload;
     function  Progress(aCurrent: Cardinal; aMax: Cardinal; aModifyable: Boolean): Cardinal;
-    procedure SetStyle(aTheme: Integer);
+    procedure SetStyle; overload;
+    procedure SetStyle(aTheme: Integer); overload;
+    procedure SetStyleColor(aColorItem: Integer; aColor: TColor);
+    function  GetStyleColor(aColorItem: Integer): TColor;
+    function  GetContext: Pointer;
   end;
 
 // === DATABASE =============================================================
@@ -1651,6 +1688,7 @@ type
     Shape: TPhysicsBodyShape;
     CircleRadius: Single;
     RectangleSize: TVector;
+    Data: Pointer;
   end;
 
   { IPhysics }
@@ -2036,6 +2074,7 @@ type
     procedure OnPhysicsUpdateBody(aBody: TPhysicsBody); virtual;
     procedure OnPathEditorAction(aAction: TPathEditorAction); virtual;
     procedure OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer; aSpeed: Single; aWindowPos: TPointi; aWindowSize: TPointi); virtual;
+    procedure OnPlayMusic(aMusic: Integer; aVolume: Single; aLoop: Boolean; const aFilename: WideString); virtual;
     function  GetGameClass: TGameClass; virtual;
     function  GetSettings: PGameSettings; virtual;
     procedure SetTerminated(aTerminate: Boolean); virtual;
@@ -2107,6 +2146,7 @@ type
     procedure OnPhysicsUpdateBody(aBody: TPhysicsBody); override;
     procedure OnPathEditorAction(aAction: TPathEditorAction); override;
     procedure OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer; aSpeed: Single; aWindowPos: TPointi; aWindowSize: TPointi); override;
+    procedure OnPlayMusic(aMusic: Integer; aVolume: Single; aLoop: Boolean; const aFilename: WideString); override;
     function  GetGameClass: TGameClass; override;
     function  GetSettings: PGameSettings; override;
     procedure SetTerminated(aTerminate: Boolean); override;
@@ -2845,6 +2885,10 @@ procedure TCustomGame.OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer;
 begin
 end;
 
+procedure TCustomGame.OnPlayMusic(aMusic: Integer; aVolume: Single; aLoop: Boolean; const aFilename: WideString);
+begin
+end;
+
 function  TCustomGame.GetGameClass: TGameClass;
 begin
   Result := gcCustom;
@@ -3198,6 +3242,11 @@ begin
 end;
 
 procedure TGame.OnPathEditorTest(aPathIndex: Integer; aLookAHead: Integer; aSpeed: Single; aWindowPos: TPointi; aWindowSize: TPointi);
+begin
+  inherited;
+end;
+
+procedure TGame.OnPlayMusic(aMusic: Integer; aVolume: Single; aLoop: Boolean; const aFilename: WideString);
 begin
   inherited;
 end;

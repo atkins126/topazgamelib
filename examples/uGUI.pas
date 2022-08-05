@@ -148,64 +148,24 @@ type
     Difficulty: Integer;
     Chk1: Boolean;
     Chk2: Boolean;
+    Lbl1: Boolean;
     Theme: Integer;
     ThemeChanged: Boolean;
     FMusic: Integer;
     FSfx: Integer;
     FStarfield: IStarfield;
   public
-    procedure OnInit; override;
-    procedure OnDone; override;
-    procedure OnRun; override;
     procedure OnGetSettings(var aSettings: TGameSettings); override;
     procedure OnStartup; override;
     procedure OnShutdown; override;
-    procedure OnReady(aReady: Boolean); override;
     procedure OnUpdate(aDeltaTime: Double); override;
-    procedure OnFixedUpdate; override;
-    procedure OnClearWindow; override;
-    procedure OnShowWindow; override;
     procedure OnRender; override;
-    procedure OnRenderHUD; override;
-    procedure OnPreShowWindow; override;
-    procedure OnPostShowWindow; override;
-    procedure OnCmdConsoleState(aState: TCmdConsoleState); override;
-    procedure OnVideoState(aState: TVideoState; aFilename: WideString); override;
-    procedure OnScreenshot(const aFilename: WideString); override;
     procedure OnProcessIMGUI; override;
-    procedure OnDisposeActor(aActor: TActor); override;
-    procedure OnSetupStartupDialog; override;
-    procedure OnStartupDialogMore; override;
-    function  OnStartupDialogRun: Boolean; override;
-    procedure OnBuildArchiveProgress(const aFilename: WideString; aProgress: Integer; aNewFile: Boolean); override;
-    procedure OnSpeechWord(const aWord, aText: WideString); override;
-    procedure OnHighscoreAction(aHighscores: IHighscores; aAction: THighscoreAction); override;
-    procedure OnInAppPurchase(aIAP: IInAppPurchase); override;
-    procedure OnSocialPost(const aSuccess: Boolean; const aErrorMsg, aMsg, aMediaFilename: WideString); override;
-    procedure OnSendMail(const aFromEmail, aFromName, aSubject, aToEmail, aBody, aError: WideString); override;
-    procedure OnLuaState(aState: TLuaState); override;
-    procedure OnBeforeRenderScene(aSceneNum: Integer); override;
-    procedure OnAfterRenderScene(aSceneNum: Integer); override;
   end;
 
 implementation
 
 { TGUIEx }
-procedure TGUIEx.OnInit;
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnDone;
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnRun;
-begin
-  inherited;
-end;
-
 procedure TGUIEx.OnGetSettings(var aSettings: TGameSettings);
 begin
   inherited;
@@ -250,31 +210,11 @@ begin
   inherited;
 end;
 
-procedure TGUIEx.OnReady(aReady: Boolean);
-begin
-  inherited;
-end;
-
 procedure TGUIEx.OnUpdate(aDeltaTime: Double);
 begin
   inherited;
 
   FStarfield.Update(aDeltaTime);
-end;
-
-procedure TGUIEx.OnFixedUpdate;
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnClearWindow;
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnShowWindow;
-begin
-  inherited;
 end;
 
 procedure TGUIEx.OnRender;
@@ -283,36 +223,6 @@ begin
 
   FStarfield.Render;
   Topaz.Window.DrawFilledRectangle((Topaz.Window.Width/2)-50, (Topaz.Window.Height/2)-50, 100, 100, DARKGREEN);
-end;
-
-procedure TGUIEx.OnRenderHUD;
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnPreShowWindow;
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnPostShowWindow;
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnCmdConsoleState(aState: TCmdConsoleState);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnVideoState(aState: TVideoState; aFilename: WideString);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnScreenshot(const aFilename: WideString);
-begin
-  inherited;
 end;
 
 procedure TGUIEx.OnProcessIMGUI;
@@ -324,6 +234,7 @@ begin
     Topaz.GUI.LayoutRowStatic(30, 80, 2);
     Topaz.GUI.Button('One');
     Topaz.GUI.Button('Two');
+    //Topaz.GUI.SelectableLabel('a label', GUI_TEXT_LEFT, Lbl1);
 
     Topaz.GUI.LayoutRowDynamic(30, 2);
     if Topaz.GUI.Option('easy', Boolean(Difficulty = 0)) then
@@ -367,71 +278,6 @@ begin
     if ThemeChanged then
       Topaz.GUI.SetStyle(Theme);
   end;
-end;
-
-procedure TGUIEx.OnDisposeActor(aActor: TActor);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnSetupStartupDialog;
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnStartupDialogMore;
-begin
-  inherited;
-end;
-
-function  TGUIEx.OnStartupDialogRun: Boolean;
-begin
-  Result := inherited;
-end;
-
-procedure TGUIEx.OnBuildArchiveProgress(const aFilename: WideString; aProgress: Integer; aNewFile: Boolean);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnSpeechWord(const aWord, aText: WideString);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnHighscoreAction(aHighscores: IHighscores; aAction: THighscoreAction);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnInAppPurchase(aIAP: IInAppPurchase);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnSocialPost(const aSuccess: Boolean; const aErrorMsg, aMsg, aMediaFilename: WideString);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnSendMail(const aFromEmail, aFromName, aSubject, aToEmail, aBody, aError: WideString);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnLuaState(aState: TLuaState);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnBeforeRenderScene(aSceneNum: Integer);
-begin
-  inherited;
-end;
-
-procedure TGUIEx.OnAfterRenderScene(aSceneNum: Integer);
-begin
-  inherited;
 end;
 
 end.
